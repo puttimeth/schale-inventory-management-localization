@@ -1,19 +1,19 @@
 import { type FC } from 'react';
 import {
   AppBar,
-  Container,
+  Box,
   FormControl,
   MenuItem,
   Select,
-  SelectChangeEvent,
+  type SelectChangeEvent,
   Stack,
   Typography,
 } from '@mui/material';
 import { grey } from '@mui/material/colors';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { useTranslation } from 'react-i18next';
 import CalculateIcon from '@mui/icons-material/Calculate';
 import LanguageIcon from '@mui/icons-material/Language';
-import { useTranslation } from 'react-i18next';
 
 const Header: FC = () => {
   const theme = createTheme({
@@ -27,8 +27,8 @@ const Header: FC = () => {
 
   const { i18n, t } = useTranslation('Header');
 
-  const handleLanguageChange = (event: SelectChangeEvent) => {
-    i18n.changeLanguage(event.target.value);
+  const handleLanguageChange = async (event: SelectChangeEvent) => {
+    await i18n.changeLanguage(event.target.value);
   };
 
   return (
@@ -45,7 +45,8 @@ const Header: FC = () => {
             <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
               {t('typography')}
             </Typography>
-            <Container
+            {/* Container should be Box because Typography uses {flexGrow: 1} */}
+            <Box
               sx={{
                 display: 'flex',
                 justifyContent: 'flex-end',
@@ -62,9 +63,10 @@ const Header: FC = () => {
                 >
                   <MenuItem value="jp">日本語</MenuItem>
                   <MenuItem value="en">English</MenuItem>
+                  <MenuItem value="ko">한국어</MenuItem>
                 </Select>
               </FormControl>
-            </Container>
+            </Box>
           </Stack>
         </AppBar>
       </ThemeProvider>

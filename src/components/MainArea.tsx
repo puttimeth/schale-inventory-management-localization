@@ -1,12 +1,12 @@
 import { type FC, useState, useRef, useEffect } from 'react';
 import { Box } from '@mui/material';
+import { useTranslation } from 'react-i18next';
 import Grid from '@mui/material/Grid';
 import Board from './Board';
 import ControlPane from './ControlPane';
 import ItemPane, { type PlacedItem, type ItemSet } from './ItemPane';
 import { getRotatedHeight, getRotatedWidth } from './ItemPane';
 import Worker from './workers/ProbCalcWorker?worker';
-import { useTranslation } from 'react-i18next';
 
 export class ItemAndPlacement {
   item: ItemSet;

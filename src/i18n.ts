@@ -1,8 +1,7 @@
-import { initReactI18next } from 'react-i18next';
-
 import i18n from 'i18next';
-import Backend from 'i18next-http-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
+import Backend from 'i18next-http-backend';
+import { initReactI18next } from 'react-i18next';
 
 i18n
   // loads translations from your server
@@ -15,12 +14,15 @@ i18n
   .init({
     // set to true if you want to see console.log
     debug: false,
-    supportedLngs: ['jp', 'en'],
+    supportedLngs: ['jp', 'en', 'ko'],
     fallbackLng: ['jp'],
     // default language if not found
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default
     },
+  })
+  .catch((err) => {
+    console.log(err);
   });
 
 export default i18n;

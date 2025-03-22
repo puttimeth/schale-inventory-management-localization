@@ -1,6 +1,7 @@
 import { type FC } from 'react';
 import { Divider, Tooltip } from '@mui/material';
 import { red, lightBlue, yellow } from '@mui/material/colors';
+import { useTranslation } from 'react-i18next';
 import AddIcon from '@mui/icons-material/Add';
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
@@ -15,7 +16,6 @@ import Select, { type SelectChangeEvent } from '@mui/material/Select';
 import Typography from '@mui/material/Typography';
 import { usePlaceSelectHelper } from './PlaceSelectHelper';
 import PlacedItemPane from './PlacedItemPane';
-import { useTranslation } from 'react-i18next';
 
 export interface Item {
   width: number;
